@@ -1,0 +1,3 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=1025
+
+xmlwf is a command-line utility for checking whether an xml document is well-formed.  This plugin will enable you to use xmlwf through Vim, to check the well-formedness of the xml file you are editing.  Vim will take you right to the errors, if there are any.
