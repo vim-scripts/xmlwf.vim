@@ -1,8 +1,7 @@
 " Vim Compiler File
 " Compiler:	xmlwf
 " Maintainer:	Robert Rowsome <rrowsome@gmail.com>
-" Last Change:	Tue, 06 Jul 2004 
-
+" Last Change:	2004 Mar 27
 
 if exists("current_compiler")
   finish
@@ -10,12 +9,15 @@ endif
 let current_compiler = "xmlwf"
 
 let s:cpo_save = &cpo
-set cpo-=C
+set cpo&vim
 
-setlocal makeprg=xmlwf\ %
+if exists(":CompilerSet") != 2		" older Vim always used :setlocal
+  command -nargs=* CompilerSet setlocal <args>
+endif
 
-setlocal errorformat=%f:%l:%c:%m
+CompilerSet makeprg=xmlwf\ %
+
+CompilerSet errorformat=%f:%l%c:%m
 
 let &cpo = s:cpo_save
 unlet s:cpo_save
-
